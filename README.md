@@ -12,55 +12,60 @@ This is a NLP project in TensorFlow that utilizes transfer learning, convulution
 
 ## Motivation
 I wanted to create a NLP project that classifies infromation as important or not. I found and paper on PubMed 200k RCT and decided to replicate it.
-![alt text](https://github.com/Vybavnag/OpenAvenues_project/blob/main/images/Screenshot%202023-08-08%20232313.jpg)
+![alt text](https://github.com/Vybavnag/SkimLit/blob/main/images/reaserch_paper.jpg)
 
 
 ## Summary of approach
 For this project, I decided to first create a baseline with as few parameters as possible so I strated of with a sklearn model. The evaluation results are here:
-![alt text](https://github.com/Vybavnag/OpenAvenues_project/blob/main/images/19_Lambda-1.jpg)
+{'accuracy': 72.1832384482987,
+ 'precision': 0.7186466952323352,
+ 'recall': 0.7218323844829869,
+ 'f1': 0.6989250353450294}
 
 I decided to start of with a CNN and decided to use Conv1D. The evaluation results are here: 
-![alt text](https://github.com/Vybavnag/OpenAvenues_project/blob/main/images/IMG_3388.jpg)\
+{'accuracy': 78.58797828677346,
+ 'precision': 0.7827518301065423,
+ 'recall': 0.7858797828677346,
+ 'f1': 0.7833516949290332}
 It did better than base line but to get a better accuracy I decided to use transfer learning.
 
 I decided to use Universal Sentence encoder model and then freeze the layers for feature extraction. The evaluation results are here:
-![alt text](https://github.com/Vybavnag/OpenAvenues_project/blob/main/images/19_Lambda-1.jpg)
+{'accuracy': 71.42195154243348,
+ 'precision': 0.7147923729993135,
+ 'recall': 0.7142195154243347,
+ 'f1': 0.7111170978995865}
 It looks like our model is performing worse. I decided to combine token and character embeddings for the next model.
 
 The evaluation results are here:
-![alt text](https://github.com/Vybavnag/OpenAvenues_project/blob/main/images/IMG_3388.jpg)\
-Still isnt beating base model so i decided to add positional embedings as well. The results are shown in the results section.
+{'accuracy': 73.44101681451079,
+ 'precision': 0.7325737363374634,
+ 'recall': 0.734410168145108,
+ 'f1': 0.7309116046721511}
+Still isnt beating Conv1D model so i decided to add positional embedings as well. Here is a flowchart of what my model looks like.
+![alt text](https://github.com/Vybavnag/SkimLit/blob/main/images/model_5.jpg)
 
 
 ## Results
-* Batch Layer Results:
-* Bucket 0: Trending items: {1307153: 0.5, 4100346: 0.25}
-* Bucket 1: Trending items: {45300114: -0.5, 1307153: -0.5, 5100542: -0.5, 3600666: -0.5, 4804137: -0.5, 4100346: -0.25}
-* Bucket 2: Trending items: {45300114: 0.5, 3600666: 0.5, 4804137: 0.5}
-* Bucket 3: Trending items: {23100035: -0.5, 1002633: -0.5, 12711562: -0.5, 2800396: -0.5, 1801739: -0.5, 5100817: -0.5, 45300114: -0.5, 3600661: -0.5, 5000475: -0.5, 3600666: -0.5, 5300125: -0.5, 3700766: -0.5, 5301663: -0.5, 17300769: -0.5, 1004836: -0.5, 12703015: -0.5, 12708392: -0.5, 4804137: -0.5, 26300078: -0.5, 26401582: -0.5, 1002542: -0.5, 1005105: -0.5, 1004210: -0.5, 12719535: -0.5, 26300084: -0.5, 5300405: -0.5, 1004856: -0.6666666666666666, 26400314: -0.5, 1005116: -0.5, 23900093: -0.5, 1005115: -0.5, 1004863: -0.5, 4900420: -0.5, 8700229: -0.5, 1004741: -0.5, 3801416: -0.5, 1005003: -0.5, 1005144: -0.5, 3300315: -0.5, 1004767: -0.8, 4802400: -0.5, 1500258: -0.5, 3900003: -0.5, 45100016: -0.5, 4100346: -0.5, 6700796: -0.5, 24100862: -0.5, 1307135: -0.5}
-* Product IDs: [1307153, 4100346, 45300114, 5100542, 3600666]
-* Trending Percentages: [1.0, 1.0, 1.0, 1.0, 1.0]
-* Speed Layer Results:
-* Similar Product Recommendations for User 532647354: [49100009, 1304409, 1005100, 2601423, 1005115]
-* Precomputed results stored.
-* Serving Layer Results:
-* Stored Results: [(1307153, 1.0), (4100346, 1.0), (45300114, 1.0), (5100542, 1.0), (3600666, 1.0)]
-* Product with the Highest Trending Percentage: 1307153
-* Most Similar Product from Speed Layer: 49100009
-* Recommending [Product ID: 1307153, Category: computers.notebook, Brand: lenovo and Product ID: 49100009, Category: nan, Brand: laston]
+{'accuracy': 83.1689394942407,
+ 'precision': 0.830717467271507,
+ 'recall': 0.831689394942407,
+ 'f1': 0.8307929631853365}
+ 
+ ![alt text](https://github.com/Vybavnag/SkimLit/blob/main/images/all_model_metrics.jpg)
 
-*Results showcase trending items out of 10000 rows that were sampled, similar products to what user 532647354 interacted with along with recommendations for said user*
+ ![alt text](https://github.com/Vybavnag/SkimLit/blob/main/images/f1-scores.jpg)
+
 
 ## Insights
-The data showcases a system that identifies trending products across different groupings, termed "buckets". Each product, denoted by an ID, has a trending percentage in these buckets; a positive value indicates rising popularity, while a negative hints at decreasing interest. For example, product "1307153" sees both growth and decline in different buckets.The speed layer offers real-time product recommendations for individual users, distinct from the general trend analysis. Lastly, the serving layer amalgamates these insights, pinpointing top trending products and interweaving real-time user-specific recommendations. Negative percentages, especially, highlight products witnessing waning demand or shifting consumer preferences in their respective categories.
+Going through the reaserch paper and trying to emmulate it proved difficult. However I decied to use Transfer learning Conv1D and embeddings to try and acchive the same results they did. I ended up with an accuracy of 83% which is close to what they got. I also realised that it is best to add different types of embeddings to the text in the data for better resutls in the models.
 
 ## What I learned
-* Sometimes, just analyzing data can teach us a lot, even without advanced predictions.
 * Planning ahead is important. Decide what data you want to input and get out of your model before you start.
-* What are Kafka systems.
-* How to create an advanced data pipeline in python to analyze data and create reccomendations 
+* What are embeddings and how to embed text data.
+* How to use CNN's and RNN's to acchive my results.
+* Universal sentence encoder and how it works.
   
 
 
 ## How to use this repository
-This repository has a main_code file which you should download as well as the dataset_link file which leads you to the datasets used. Download them in the same file and rub the main_code file preferably on JypterNotebook or GoogleColab. Main_code_outputs shows all the outputs I got, when you run the file you should get something similar. The rest of the files showcase what I learned week by week while working on this project with OpenAvenues.
+Open the ipynb file in Google Colab or Jupyter Notebook and run. Make sure there is a GPU with high RAM.
