@@ -17,6 +17,8 @@ I wanted to create a NLP project that classifies infromation as important or not
 
 ## Summary of approach
 For this project, I decided to first create a baseline with as few parameters as possible so I strated of with a sklearn model. The evaluation results are here:
+
+
 {'accuracy': 72.1832384482987,
 
 
@@ -29,6 +31,8 @@ For this project, I decided to first create a baseline with as few parameters as
  'f1': 0.6989250353450294}
 
 I decided to start of with a CNN and decided to use Conv1D. The evaluation results are here: 
+
+
 {'accuracy': 78.58797828677346,
 
 
@@ -42,6 +46,8 @@ I decided to start of with a CNN and decided to use Conv1D. The evaluation resul
 It did better than base line but to get a better accuracy I decided to use transfer learning.
 
 I decided to use Universal Sentence encoder model and then freeze the layers for feature extraction. The evaluation results are here:
+
+
 {'accuracy': 71.42195154243348,
 
 
@@ -55,6 +61,8 @@ I decided to use Universal Sentence encoder model and then freeze the layers for
 It looks like our model is performing worse. I decided to combine token and character embeddings for the next model.
 
 The evaluation results are here:
+
+
 {'accuracy': 73.44101681451079,
 
 
