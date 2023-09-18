@@ -19,16 +19,16 @@ I wanted to create a NLP project that classifies infromation as important or not
 For this project, I decided to first create a baseline with as few parameters as possible so I strated of with a sklearn model. The evaluation results are here:
 
 
-{'accuracy': 72.1832384482987,
+**{'accuracy': 72.1832384482987,
 
 
- 'precision': 0.7186466952323352,
-
- 
- 'recall': 0.7218323844829869,
+ 'precision': 0.7186466952323352,**
 
  
- 'f1': 0.6989250353450294}
+ 'recall': 0.7218323844829869,**
+
+ 
+ 'f1': 0.6989250353450294}**
 
 I decided to start of with a CNN and decided to use Conv1D. The evaluation results are here: 
 
