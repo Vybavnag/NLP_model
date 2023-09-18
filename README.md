@@ -1,6 +1,6 @@
-This is a summary of my Food Vision project for OpenAvenues. 
+This is a summary of my Natural Language Processing project.
 
-This is a Computer Vison project in TensorFlow that utilizes transfer learning and convulutional neural networks to perform food classification. 
+This is a NLP project in TensorFlow that utilizes transfer learning, convulutional neural networks and embbeding.
 
 ## Table of Contents 
 * [Motivation](#motivation)
@@ -11,18 +11,25 @@ This is a Computer Vison project in TensorFlow that utilizes transfer learning a
 * [How to use this repository](#how-to-use-this-repository)
 
 ## Motivation
-Upon reaserching copmuter vision and deep learning I stumbled on to the Food101 reaserch paper and found it intreging and wanted to see if I could create a model to beat the results obtained.
+I wanted to create a NLP project that classifies infromation as important or not. I found and paper on PubMed 200k RCT and decided to replicate it.
 ![alt text](https://github.com/Vybavnag/OpenAvenues_project/blob/main/images/Screenshot%202023-08-08%20232313.jpg)
 
 
 ## Summary of approach
-For this project, I decided to first create a baseline with as few parameters as possible. The loss curves for the base_line is shown here:
+For this project, I decided to first create a baseline with as few parameters as possible so I strated of with a sklearn model. The evaluation results are here:
 ![alt text](https://github.com/Vybavnag/OpenAvenues_project/blob/main/images/19_Lambda-1.jpg)
-It looked like the moddel was overfitting so I decided to add DataAugmentation.
 
-The loss curves for the base_line is shown here:
+I decided to start of with a CNN and decided to use Conv1D. The evaluation results are here: 
 ![alt text](https://github.com/Vybavnag/OpenAvenues_project/blob/main/images/IMG_3388.jpg)\
-looks like the accuracy took a hit and went down but seems like data is diverse providing variety in training. I then dcided to unfreeze some layers and accived an accuracy of placeholer%
+It did better than base line but to get a better accuracy I decided to use transfer learning.
+
+I decided to use Universal Sentence encoder model and then freeze the layers for feature extraction. The evaluation results are here:
+![alt text](https://github.com/Vybavnag/OpenAvenues_project/blob/main/images/19_Lambda-1.jpg)
+It looks like our model is performing worse. I decided to combine token and character embeddings for the next model.
+
+The evaluation results are here:
+![alt text](https://github.com/Vybavnag/OpenAvenues_project/blob/main/images/IMG_3388.jpg)\
+Still isnt beating base model so i decided to add positional embedings as well. The results are shown in the results section.
 
 
 ## Results
