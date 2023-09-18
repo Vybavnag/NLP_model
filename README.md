@@ -19,61 +19,62 @@ I wanted to create a NLP project that classifies infromation as important or not
 For this project, I decided to first create a baseline with as few parameters as possible so I strated of with a sklearn model. The evaluation results are here:
 
 
-**{'accuracy': 72.1832384482987,
+**{'accuracy': 72.1832384482987,**
 
 
- 'precision': 0.7186466952323352,**
-
- 
- 'recall': 0.7218323844829869,**
+**'precision': 0.7186466952323352,**
 
  
- 'f1': 0.6989250353450294}**
+ **'recall': 0.7218323844829869,**
+
+ 
+ **'f1': 0.6989250353450294}**
 
 I decided to start of with a CNN and decided to use Conv1D. The evaluation results are here: 
 
 
-{'accuracy': 78.58797828677346,
+**{'accuracy': 78.58797828677346,**
 
 
- 'precision': 0.7827518301065423,
-
- 
- 'recall': 0.7858797828677346,
+ **'precision': 0.7827518301065423,**
 
  
- 'f1': 0.7833516949290332}
+ **'recall': 0.7858797828677346,**
+
+ 
+ **'f1': 0.7833516949290332}**
  
 It did better than base line but to get a better accuracy I decided to use transfer learning.
 
 I decided to use Universal Sentence encoder model and then freeze the layers for feature extraction. The evaluation results are here:
 
 
-{'accuracy': 71.42195154243348,
+**{'accuracy': 71.42195154243348,**
 
 
- 'precision': 0.7147923729993135,
- 
- 'recall': 0.7142195154243347,
+ **'precision': 0.7147923729993135,**
 
  
- 'f1': 0.7111170978995865}
+ **'recall': 0.7142195154243347,**
+
+ 
+ **'f1': 0.7111170978995865}**
  
 It looks like our model is performing worse. I decided to combine token and character embeddings for the next model.
 
 The evaluation results are here:
 
 
-{'accuracy': 73.44101681451079,
+**{'accuracy': 73.44101681451079,**
 
 
- 'precision': 0.7325737363374634,
-
- 
- 'recall': 0.734410168145108,
+ **'precision': 0.7325737363374634,**
 
  
- 'f1': 0.7309116046721511}
+ **'recall': 0.734410168145108,**
+
+ 
+ **'f1': 0.7309116046721511}**
  
 Still isnt beating Conv1D model so i decided to add positional embedings as well. Here is a flowchart of what my model looks like.
 
@@ -82,16 +83,16 @@ Still isnt beating Conv1D model so i decided to add positional embedings as well
 
 
 ## Results
-{'accuracy': 83.1689394942407,
+**{'accuracy': 83.1689394942407,**
 
 
- 'precision': 0.830717467271507,
-
- 
- 'recall': 0.831689394942407,
+ **'precision': 0.830717467271507,**
 
  
- 'f1': 0.8307929631853365}
+ **'recall': 0.831689394942407,**
+
+ 
+ **'f1': 0.8307929631853365}**
  
  ![alt text](https://github.com/Vybavnag/SkimLit/blob/main/images/all_model_metrics.jpg)
 
