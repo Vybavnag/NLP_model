@@ -43,6 +43,7 @@ I decided to start of with a CNN and decided to use Conv1D. The evaluation resul
 
  
  'f1': 0.7833516949290332}
+ 
 It did better than base line but to get a better accuracy I decided to use transfer learning.
 
 I decided to use Universal Sentence encoder model and then freeze the layers for feature extraction. The evaluation results are here:
@@ -73,6 +74,7 @@ The evaluation results are here:
 
  
  'f1': 0.7309116046721511}
+ 
 Still isnt beating Conv1D model so i decided to add positional embedings as well. Here is a flowchart of what my model looks like.
 
 
