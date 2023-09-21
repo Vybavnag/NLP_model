@@ -11,7 +11,7 @@ This is a NLP project in TensorFlow that utilizes transfer learning, convulution
 * [How to use this repository](#how-to-use-this-repository)
 
 ## Motivation
-I wanted to create a NLP project that classifies infromation as important or not. I found and paper on PubMed 200k RCT and decided to replicate it.
+I wanted to create a NLP project that classifies infromation into sub-categories so it is easier to read through long papers. I found and paper on PubMed 200k RCT and decided to replicate it.
 ![alt text](https://github.com/Vybavnag/SkimLit/blob/main/images/reaserch_paper.jpg)
 
 
